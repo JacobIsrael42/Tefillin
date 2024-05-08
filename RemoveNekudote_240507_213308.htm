@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html><head> </head>
+<body>
+<h1>Remove Nekudote</h1>
+<style>
+table {
+  font-family: arial, sans-serif;
+   border-collapse: collapse;
+  width: 80%;
+} 
+
+h1{
+font-size:22px;
+}
+td, th {
+  border: 3px solid #bbbbee;
+  text-align: right;
+  padding: 4px;
+}
+</style>
+<table><tr><td><label for="inputColumn">Input</label></td>
+</tr><tr><td><textarea id="inputColumn" name= "input Column" rows="6" cols="120">INPUT</textarea></td>
+</tr><tr><td style="text-align: right"><button
+type="button" onclick="remove()">Remove Nekudote</button></td></tr><tr><td  style="text-align: right"><textarea id="outputColumn" name="Output Column" rows="10" cols="120">OUTPUT</textarea>
+</td></tr><tr><td><button
+type="button" onclick="copyToClipboard()">Copy to clipboard</button><button
+type="button" onclick="saveToFile()">Save to file</button></td></tr></table>
+<script>
+/****************
+remove
+******************/
+function remove(){ 
+
+outputString = "";
+inputColumn=document.getElementById("inputColumn");
+// alert(inputColumn);
+let inputString=inputColumn.value;
+let inputLength=inputString.length;
+// alert(inputString);
+
+for(var n=0;n<inputLength ; n++){
+     let nextCode=inputString.charCodeAt(n);
+   
+if((nextCode >= 1456 && nextCode <= 1487) || nextCode > 1514){
+         continue;
+    }
+  
+    if(nextCode < 1488) {
+         nextCode = 32;
+    }
+   
+
+nextLetter = String.fromCharCode(nextCode); 
+
+     outputString = outputString.concat(nextLetter);
+} // end loop 
+
+    document.getElementById("outputColumn").value = outputString; 
+
+} // end function
+/*****/ 
+
+/*************
+copyToClipboard
+**************/
+function copyToClipboard(){ 
+   
+  // alert("copyToClipboard"); 
+
+   let textArea = document.getElementById("outputColumn"); 
+
+   textArea.select();
+   document.execCommand("copy"); 
+
+//navigator.clipboard.writeText(textArea.value); 
+
+} 
+
+/***************
+saveToFile
+******************/
+function saveToFile(){ 
+
+ // alert("saveToFile");
+  var text = document.getElementById("outputColumn").value; 
+
+   // text = text.replace(/\n/g, "\r\n"); 
+
+   // To retain the Line breaks. 
+    var blob = new Blob([text], { type: "text/plain"}); 
+
+     var anchor = document.createElement("a");
+    anchor.download = "output.txt"; 
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target =" blank";
+    anchor.style.display = "none"; 
+
+// just to be safe! document.body.appendChild(anchor); 
+
+anchor.click(); 
+document.body.removeChild(anchor); 
+
+} 
+
+</script>
+</body>
+</html>
