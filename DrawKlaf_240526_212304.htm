@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=2500, initial-scale=1.0">
+<title class="title">Draw Klaf </title>
+</head>
+
+<style>
+.bigLabel {
+  font-size: 40px;
+}
+.radio{
+height:30px; 
+width:30px; 
+}
+
+.heading {
+  font-size: 80px;
+}
+
+.show {
+  font-size: 40px;
+}
+
+canvas { 
+ background:transparent; 
+}
+
+table { width: 100%;
+tr { height: 84px; 
+td { width:30%; padding: 0 6px; vertical-align: middle; } 
+} 
+}
+
+.theButton {
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+ 
+ text-align: center;
+  width: 100%;
+ height: 100%;
+ background-image: linear-gradient(#B384C9, #391F5B 50%);
+}
+
+ textArea{
+   text-align: right;
+   width: 70%;
+   height: 450px;
+   background-color: #f8f890;
+   font-size: 14px;
+  }
+
+label{ 
+   font-size: 24px;
+  }
+
+</style>
+
+<body>
+<h1 class="heading">Draw klaf text</h1>
+
+<input type='file' accept='image/*' onchange='getImage(event)' multiple/>
+<br>
+<label for="lineWidth">Line width</label>
+ <select name="lineWidth" id="lineWidth">
+<option value="0">0</option>
+<option value="1" >1</option>
+<option value="2">2</option>
+<option value="3" selected="selected" >3</option>
+    
+   <option value="4">4</option>
+   <option value="5">5</option>
+  </select>
+ <br>
+<label for="fontSize">Font Size</label>
+ <select name="fontSize" id="fontSize">
+   
+   <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="6.5">6.5</option>
+    <option value="7">7</option>
+    <option value="8"  >8</option>
+    <option value="9">9</option>
+    <option value="10" >10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14" selected="selected">14</option>
+     <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+  </select>
+
+<br>
+<label for="wordSpacing">Word Spacing </label>
+  <select name="wordSpacing" id="wordSpacing">
+    <option value="16">16</option>
+    <option value="18">18</option>
+    <option value="20">20</option>
+    <option value="22" selected="selected" >22</option>
+    <option value="24">24</option>
+    <option value="26"> 26</option>
+    <option value="28">28</option>
+    <option value="30">30</option>
+    <option value="32">32</option>
+    <option value="34">34</option>
+    <option value="36">36</option>
+    <option value="38">38</option>
+    <option value="40">40</option>
+<option value="42">42</option>
+<option value="44">44</option>
+    <option value="46"> 46</option>
+  
+  </select>
+<br>
+<label for="letterGap">Letter Gap</label>
+<select name="letterGap" id="letterGap">
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10" >10</option>
+    <option value="11">11</option> 
+    <option value="12" >12</option>
+    <option value="13">13</option>
+    <option value="14" >14</option> 
+    <option value="15" selected="selected">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option> 
+    <option value="18">18</option>
+  </select>
+ <br>
+<table>
+<tr>
+<td>
+  <button type="button" class="theButton" onClick="drawText();">Draw Klaf</button></div>
+ </td>
+<td>
+</td>
+<td>
+  <button type="button" class="theButton" onClick="removeLetter();" style="float: center;">Remove Letter</button>
+</td>
+</tr>
+</table>
+
+ <br><br>
+<canvas id="myCanvas" width="2500" height="550" style="border:0px solid black; " ></canvas>
+<br>
+<textarea id="inputColumn" name= "input Column" rows="6" cols="120">מילים פה</textarea>
+<br>
+<img id="image1514" /> 
+<img id="image1513" /> 
+<img id="image1512" /> 
+<img id="image1511bottom" /> 
+<img id="image1511" /> 
+<img id="image1510" /> 
+<img id="image1509" /> 
+<img id="image1509bottom" /> 
+<img id="image1508" /> 
+<img id="image1507" /> 
+<img id="image1507bottom" /> 
+<img id="image1506" /> 
+<img id="image1506bottom" /> 
+<img id="image1505" /> 
+<img id="image1504" /> 
+<img id="image1503" /> 
+<img id="image1503bottom" /> 
+<img id="image1502" /> 
+<img id="image1501" /> 
+<img id="image1500" /> 
+<img id="image1499" /> 
+<img id="image1498" /> 
+<img id="image1498bottom" /> 
+<img id="image1497" /> 
+<img id="image1496" /> 
+<img id="image1495top" /> 
+<img id="image1495" /> 
+<img id="image1494" /> 
+<img id="image1493" /> 
+<img id="image1492" /> 
+<img id="image1491" /> 
+<img id="image1490" /> 
+<img id="image1489" /> 
+<img id="image1488" /> 
+
+<script>
+//■■■■■■■■
+
+const MY_CANVAS = document.getElementById("myCanvas");
+ 
+const CANVAS_WIDTH = MY_CANVAS.width;
+const CANVAS_HEIGHT = MY_CANVAS.height;
+const MY_CONTEXT = MY_CANVAS.getContext("2d");
+var yMiddle = CANVAS_HEIGHT/2;
+
+/**********************
+logFailure
+**********************/
+function logFailure (failureNumber, message){
+     alert("Failure " +  failureNumber + ": "+ message);
+}//  end function
+
+/**********************
+   clearCanvas
+**********************/
+function clearCanvas(){
+ 
+   
+    MY_CONTEXT.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+}//  end function
+
+   var nextFileToLoad = 0;
+   var imageFileCount = 1;
+/**************
+getImage
+*****************/
+function getImage(file) { 
+
+   var input = file.target; 
+   var reader = new FileReader(); 
+    reader.onload = function(){
+
+       var dataURL = reader.result; 
+       // alert("first file " + input.files[0].name);  // size  type
+      fileName = input.files[nextFileToLoad].name;
+      //  alert("first = " + fileName); 
+
+      nextFileToLoad++ ;   
+
+      dotIndex = fileName.indexOf(".");
+      if(dotIndex > 0){
+        fileName = fileName.substring(0, dotIndex);
+      }
+      // alert(fileName);
+      /// bottomIndex = fileName.indexOf("bottom");
+       var nextImage = document.getElementById("image" + fileName); 
+        
+      if(nextImage){
+           nextImage.src = dataURL; 
+        }
+        else{
+            logFailure(6859585, "Cannot find place for image " + fileName);
+         }
+        if(nextFileToLoad < imageFileCount){
+            reader.readAsDataURL(input.files[nextFileToLoad]); 
+        }
+       else{ // reset
+          nextFileToLoad = 0;
+       }
+    };
+
+  imageFileCount= input.files.length;
+   
+   reader.readAsDataURL(input.files[0]); 
+    
+} // end function
+
+/**********************
+fillPolygon
+with xy positions of array
+**********************/
+function fillPolygon (array){
+if( ! array){
+   logFailure(922, "no array");
+    return;
+}
+
+let length = array.length;
+
+if(length < 4){
+   logFailure(372, "length is " + length );
+   return;
+}
+
+MY_CONTEXT.beginPath();
+MY_CONTEXT.moveTo(array[0], array[1]);
+
+for(i = 2 ; i < length ; i+=2 ){
+    MY_CONTEXT.lineTo(array[i], array[i+1]);
+}
+MY_CONTEXT.lineTo(array[0], array[1]);
+
+MY_CONTEXT.fill();
+} // end function
+
+/**********************
+fillRectangle_XYWHAngle
+X & Y are at the Center of the rectangle
+**********************/
+function fillRectangle_XYWHAngle(x, y, width, height, angleOffset){
+
+const dX = width/2.0;
+const dY = height/2.0;
+
+if( dX<=0 || dY<=0){
+    logFailure(8337, "dX " + dX + "   dY " + dY);
+   return;
+}
+
+// 4 x  & 4 y
+var pointArray = new Array(8);
+const rectangleRadius = Math.sqrt(dX*dX + dY*dY);
+const oldAngle = Math.atan(dX/dY);
+
+var newAngle =  0;
+var multiplier = 1;
+var plusPI = 0.0;
+
+for(let i = 0 ; i < 8 ; i+=2){
+if(i > 3){
+   plusPI = Math.PI;
+}
+ 
+newAngle = multiplier * oldAngle + plusPI + angleOffset;
+
+  pointArray[i] = x + Math.sin(newAngle) * rectangleRadius;
+  pointArray[i+1] = y + Math.cos(newAngle) * rectangleRadius;
+
+   multiplier = -1 * multiplier;
+} // end loop
+
+    fillPolygon(pointArray);
+}// end function
+
+/**************
+drawText
+*****************/
+function drawText(){
+
+   clearCanvas();
+
+   lineWidthElement = document.getElementById("lineWidth");
+   
+    // alert("lwe "+lineWidthElement);
+  var lineWidth = parseInt(lineWidthElement.value);
+    
+
+fontSizeElement = document.getElementById("fontSize");
+   wordSpacingElement = document.getElementById("wordSpacing");
+   letterGapElement = document.getElementById("letterGap");
+    const adjuster = 0.30 ;
+   var fontSize = adjuster * parseFloat(fontSizeElement.value);
+   var wordSpacing = fontSize * parseInt(wordSpacingElement.value);
+   var letterGap = adjuster * fontSize * parseInt(letterGapElement.value);
+   // alert(fontSize);
+
+var letterHeight = fontSize * CANVAS_HEIGHT/20;
+  
+ var yTop = yMiddle - letterHeight/2;
+  var yBottom =  yMiddle + letterHeight/2;
+
+  var yAbove = yMiddle - letterHeight;
+  var yBelow =  yMiddle + letterHeight;
+
+  
+   var cursor = CANVAS_WIDTH;
+//  yTop  yMiddle  letterHeight  yBottom =  
+
+  let inputColumn = document.getElementById("inputColumn");
+    // alert(inputColumn);
+    let inputString = inputColumn.value;
+    let letterCount = inputString.length;
+     /// alert(inputString)
+     let yudSizer = 0.46;
+     let lastLetter = letterCount-1;
+
+    //____Writing loop____
+   for(var i = 0 ; i < letterCount ; i++){
+       let nextCode = inputString.charCodeAt(i);
+   
+        if(nextCode <= 32 || nextCode == 160 ){ // nbsp
+            cursor -= wordSpacing;
+             continue;
+        }
+
+      let nextImage = document.getElementById("image" + nextCode); 
+    if(! nextImage){
+         logFailure(58573, "No image for " + nextCode + "  " + inputString.substring(i,1) );
+          continue;
+       }
+
+    letterHeightToUse = letterHeight;
+    if( nextCode == 1497){  // YUD
+       letterHeightToUse =  letterHeight  * yudSizer;
+    }
+
+      let widthOverHeight = nextImage.width/nextImage.height;
+      let letterWidth = letterHeightToUse * widthOverHeight;
+      cursor -= letterWidth;
+      cursor -= letterGap;
+
+   if(nextCode == 1497){
+       ///  YUD
+      MY_CONTEXT.drawImage(nextImage, cursor, yTop, letterWidth, letterHeightToUse);
+   }
+   else{ // Normal
+       MY_CONTEXT.drawImage(nextImage, cursor, yTop, letterWidth, letterHeightToUse);
+   }
+
+//_____Additions above & below_____
+if( nextCode == 1500){ 
+     /// LAMED
+     /// add a  YUD  1497  on top
+     nextImage = document.getElementById("image1497"); 
+     letterHeightToUse =  letterHeight  * yudSizer;
+     widthOverHeight = nextImage.width/nextImage.height;
+     letterWidth = letterHeightToUse * widthOverHeight;
+
+    MY_CONTEXT.drawImage(nextImage, cursor - letterWidth * 0.88 , yTop - letterHeightToUse, letterWidth, letterHeightToUse);
+//  move the cursor a little more
+      cursor -= letterWidth * 0.35;
+
+}
+else if(nextCode == 1495){  //    chet       
+       nextImage = document.getElementById("image" + nextCode +"top"); 
+       widthOverHeight = nextImage.width/nextImage.height;
+       letterHeightToUse =  letterWidth/widthOverHeight;
+       MY_CONTEXT.drawImage(nextImage, cursor , yTop - letterHeightToUse, letterWidth, letterHeightToUse);
+}
+else if(nextCode == 1506 || nextCode == 1507 || nextCode == 1498 || nextCode == 1509 || nextCode == 1503 || nextCode == 1511){  //  Ayin  pheh  chag  tsadik tzadik  noon nun   koof kuf
+   nextImage = document.getElementById("image" + nextCode +"bottom"); 
+
+  if(! nextImage){
+         logFailure(90555, "No image for " + nextCode + " bottom" );
+          continue;
+     }
+   // letterWidth is the same
+    widthOverHeight = nextImage.width/nextImage.height;
+    letterHeightToUse =  letterWidth/widthOverHeight;
+ 
+    MY_CONTEXT.drawImage(nextImage, cursor , yBottom, letterWidth, letterHeightToUse);
+} 
+
+//_____gap correction___
+if(i < lastLetter ){
+let upcomingCode = inputString.charCodeAt(i+1);
+
+//  nun or Tet in front of
+//  tzadik sofit, shin, yud, 
+if(nextCode == 1504 || nextCode == 1514){
+
+    if(upcomingCode == 1497 || upcomingCode == 1506  || upcomingCode == 1509  || upcomingCode == 1513){
+        cursor += letterGap * 0.5;
+    }
+}
+//  Yud in front of
+//  Gimmel or Bet, 
+if(nextCode == 1497){
+    if(upcomingCode == 1489  || upcomingCode == 1490){
+        cursor += letterGap * 0.42;
+    }
+}
+} // gap correction
+
+} // end loop
+
+//_____ stroke____
+if(lineWidth > 0){
+
+    MY_CONTEXT.strokeStyle = "blue";
+    MY_CONTEXT.lineWidth = lineWidth;
+     let halfLetterHeight = letterHeight/2;
+    let yStart = yAbove - letterHeight;
+    let yEnd = yBelow + letterHeight;
+
+   for(nextY = yStart ; nextY <= yEnd ; nextY += halfLetterHeight){
+   if(nextY == yMiddle){
+     continue;
+   }
+   MY_CONTEXT.beginPath();
+   MY_CONTEXT.moveTo(0, nextY);
+   MY_CONTEXT.lineTo(CANVAS_WIDTH, nextY);
+   MY_CONTEXT.stroke();
+    
+} // line loop 
+
+}
+
+} /// end function
+
+/**************
+removeLetter
+*****************/
+function removeLetter(){
+
+let inputColumn = document.getElementById("inputColumn");
+    // alert(inputColumn);
+    let inputString = inputColumn.value;
+  ///  let letterCount = inputString.length;
+ 
+
+  inputColumn.value = inputString.substring(1);
+
+  drawText();
+} /// end function
+
+//♡♡♡♡♡TESTING♡♡♡♡
+MY_CONTEXT.fillStyle = "blue";
+fillRectangle_XYWHAngle(0,0, CANVAS_WIDTH, CANVAS_HEIGHT, 0);
+
+</script>
+</body>
+</html>
